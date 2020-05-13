@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    Maps Key    -->
+    <string name="maps_key" translatable="false">AIzaSyBA0uzkZf1ptDuhFMzZ02ESkN8HbOHb_u4</string>
+<!--        <string name="place_api" translatable="false">AIzaSyDN04C6WRh0DnnGUM1RXFjtyQzPJiwSVW4</string>-->
+<!--    Places key Provided by web-->
+        <string name="place_api" translatable="false">AIzaSyAY0B4xNSzIrro5kII02w8GQwXmt9byMGo</string>
+<!--    <string name="maps_key" translatable="false">AIzaSyAY0B4xNSzIrro5kII02w8GQwXmt9byMGo</string>  Key Provided by server-->
+<!--    AIzaSyAY0B4xNSzIrro5kII02w8GQwXmt9byMGo-->
+</resources>

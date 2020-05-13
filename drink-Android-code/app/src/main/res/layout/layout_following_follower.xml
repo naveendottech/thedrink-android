@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<layout>-->
+
+  <!--  <data>
+        <variable
+            name="dataModel"
+            type="" />
+
+    </data>-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/register_bg"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivClose"
+        style="@style/cross_button"
+        android:layout_marginRight="@dimen/sixteen_dp"
+        app:layout_constraintTop_toBottomOf="@+id/guideHTop"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/close" />
+
+
+    <TextView
+        android:id="@+id/tvFollowers"
+        style="@style/heading_text_view"
+        android:text="@string/followers"
+        app:layout_constraintStart_toStartOf="@+id/guideVLeft"
+        app:layout_constraintTop_toBottomOf="@+id/guideHTop" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideVCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFollowersCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLength="5"
+        android:text="0"
+        android:textSize="@dimen/normal_text_size"
+        style="@style/title_info_text_view"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/guideVLeft"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tvFollowers"
+        app:layout_constraintTop_toBottomOf="@+id/tvFollowers" />
+
+    <ImageView
+        android:id="@+id/ivFollowers"
+        android:layout_width="@dimen/twenty_dp"
+        android:layout_height="@dimen/twenty_dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFollowersCount"
+        app:layout_constraintStart_toEndOf="@+id/tvFollowersCount"
+        app:layout_constraintTop_toTopOf="@+id/tvFollowersCount"
+        app:srcCompat="@drawable/follower" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideVLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideHTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFollowing"
+        style="@style/heading_text_view"
+
+        android:layout_marginStart="8dp"
+        android:text="@string/following"
+        app:layout_constraintStart_toStartOf="@+id/guideVCenter"
+        app:layout_constraintTop_toBottomOf="@+id/guideHTop" />
+
+    <TextView
+        android:id="@+id/tvFollowingCount"
+        style="@style/title_info_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:maxLength="5"
+        android:textSize="@dimen/normal_text_size"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/guideVCenter"
+        app:layout_constraintTop_toBottomOf="@id/tvFollowing" />
+
+    <ImageView
+        android:id="@+id/ivFollowing"
+        android:layout_width="@dimen/twenty_dp"
+        android:layout_height="@dimen/twenty_dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFollowingCount"
+        app:layout_constraintStart_toEndOf="@+id/tvFollowingCount"
+        app:layout_constraintTop_toTopOf="@+id/tvFollowingCount"
+        app:srcCompat="@drawable/following" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFollowers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/tvSupport"
+        app:layout_constraintLeft_toLeftOf="@+id/guideVLeft"
+        app:layout_constraintRight_toRightOf="@id/guideVCenter"
+        app:layout_constraintTop_toBottomOf="@+id/tvFollowersCount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvDivider"
+        android:layout_width="@dimen/divider_height"
+        android:layout_height="0dp"
+        style="@style/divider_color"
+        app:layout_constraintRight_toLeftOf="@id/rvFollowing"
+        app:layout_constraintLeft_toRightOf="@id/rvFollowers"
+        app:layout_constraintBottom_toTopOf="@+id/tvSupport"
+        app:layout_constraintTop_toTopOf="@id/tvFollowers"
+        ></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFollowing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/tvSupport"
+        app:layout_constraintLeft_toLeftOf="@+id/guideVCenter"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFollowingCount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvSupport"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!--</layout>-->

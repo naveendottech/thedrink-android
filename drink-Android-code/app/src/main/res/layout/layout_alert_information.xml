@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/alertBackground">
+
+    <TextView android:id="@+id/tvTitle"
+              android:text="Title"
+              style="@style/alertHeadingTextStyle"/>
+
+
+    <TextView
+            android:id="@+id/tvMessage"
+            android:text="You have 2 choices now. Either name by feature (like result_display, user_onboarding, etc). Or name by category (activities, fragments, items, etc)."
+            style="@style/alertMessagTextStyle"/>
+
+    <RelativeLayout
+    style="@style/alertButtonsLayoutStyle">
+
+
+    <TextView
+                android:id="@+id/tvActionOne"
+                style="@style/alertButtonStyles"
+                android:layout_alignParentLeft="true"
+                android:text="CANCEL"/>
+
+     <TextView
+                android:id="@+id/tvActionTwo"
+                style="@style/alertButtonStyles"
+                android:layout_toLeftOf="@+id/tvActionThree"
+                android:text="AGREE"/>
+
+    <TextView
+            android:id="@+id/tvActionThree"
+            style="@style/alertButtonStyles"
+            android:layout_alignParentRight="true"
+            android:text="DISAGREE"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

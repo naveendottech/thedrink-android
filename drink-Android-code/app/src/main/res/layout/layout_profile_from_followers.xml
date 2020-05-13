@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickEvents"
+            type="com.mjdistillers.drinkthedrink.dialogs.ProfileDialog.ClickEvents" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten_dp"
+        android:background="@drawable/register_bg"
+        android:padding="@dimen/twenty_dp">
+
+
+        <TextView
+            android:id="@+id/tvProfile"
+            style="@style/heading_text_view"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/profile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            style="@style/cross_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/ivUserImage"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/profile_image_hw"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:layout_marginRight="@dimen/fifteen_dp"
+            app:layout_constraintEnd_toStartOf="@id/guideVCenter"
+            app:layout_constraintRight_toRightOf="@+id/guideVCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfile"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideVCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            style="@style/text_view_main_info"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:padding="0dp"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/TEXT_SIZE_LARGE"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/guideVCenter"
+            app:layout_constraintStart_toEndOf="@id/guideVCenter"
+            app:layout_constraintTop_toTopOf="@+id/ivUserImage" />
+
+        <TextView
+            android:id="@+id/tvEditProfile"
+            style="@style/title_info_text_view"
+            android:layout_marginTop="@dimen/four_dp"
+            android:text="@string/edit_profile"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            android:textColor="@color/text_color_black"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvFollowersCount"
+            style="@style/title_info_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="5"
+            android:onClick="@{(view)->clickEvents.onClicFollowGroup(view)}"
+            android:textStyle="bold"
+            android:text="   "
+            app:layout_constraintBottom_toBottomOf="@+id/ivFollowers"
+            app:layout_constraintLeft_toLeftOf="@id/tvEditProfile"
+            app:layout_constraintLeft_toRightOf="@+id/ivUserImage"
+            app:layout_constraintTop_toTopOf="@+id/ivFollowers" />
+
+        <ImageView
+            android:id="@+id/ivFollowers"
+            android:layout_width="@dimen/twenty_dp"
+            android:layout_height="@dimen/twenty_dp"
+            android:layout_marginStart="@dimen/eight_dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:onClick="@{(view)->clickEvents.onClicFollowGroup(view)}"
+            app:layout_constraintBottom_toTopOf="@+id/ivFollowing"
+            app:layout_constraintStart_toEndOf="@+id/tvFollowersCount"
+            app:layout_constraintTop_toBottomOf="@+id/tvEditProfile"
+            app:layout_constraintRight_toLeftOf="@+id/tvOnline"
+            app:srcCompat="@drawable/follower" />
+
+        <TextView
+            android:id="@+id/tvFollowingCount"
+            style="@style/title_info_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="5"
+            android:onClick="@{(view)->clickEvents.onClicFollowGroup(view)}"
+            android:text="   "
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFollowing"
+            app:layout_constraintLeft_toLeftOf="@+id/tvFollowersCount"
+            app:layout_constraintLeft_toRightOf="@+id/ivUserImage"
+            app:layout_constraintTop_toTopOf="@+id/ivFollowing" />
+
+        <ImageView
+            android:id="@+id/ivFollowing"
+            android:layout_width="@dimen/twenty_dp"
+            android:layout_height="@dimen/twenty_dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/five_dp"
+            android:onClick="@{(view)->clickEvents.onClicFollowGroup(view)}"
+            app:layout_constraintBottom_toTopOf="@+id/tvDivider"
+            app:layout_constraintStart_toEndOf="@+id/tvFollowingCount"
+            app:layout_constraintTop_toBottomOf="@+id/ivFollowers"
+            app:srcCompat="@drawable/following" />
+
+        <ImageView
+            android:id="@+id/ivOnline"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/dot"
+            app:layout_constraintBottom_toBottomOf="@+id/tvOnline"
+            app:layout_constraintRight_toLeftOf="@+id/tvOnline"
+            app:layout_constraintStart_toEndOf="@+id/ivFollowers"
+            app:layout_constraintTop_toTopOf="@id/tvOnline"></ImageView>
+
+        <TextView
+            android:id="@+id/tvOnline"
+            style="@style/title_info_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="@string/online"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            app:layout_constraintBottom_toBottomOf="@id/ivFollowers"
+            app:layout_constraintLeft_toRightOf="@id/ivOnline"
+            app:layout_constraintTop_toTopOf="@id/ivFollowers" />
+
+
+        <ImageView
+            android:id="@+id/ivMessage"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/message"
+            android:onClick="@{(view)->clickEvents.onClickMessages(view)}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessages"
+            app:layout_constraintRight_toLeftOf="@+id/tvOnline"
+            app:layout_constraintStart_toEndOf="@+id/ivFollowers"
+            app:layout_constraintTop_toTopOf="@id/tvMessages"></ImageView>
+
+        <TextView
+            android:id="@+id/tvMessages"
+            style="@style/title_info_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="@string/message"
+            android:onClick="@{(view)->clickEvents.onClickMessages(view)}"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            app:layout_constraintBottom_toBottomOf="@id/ivFollowing"
+            app:layout_constraintLeft_toRightOf="@id/ivMessage"
+            app:layout_constraintTop_toTopOf="@id/ivFollowing" />
+
+        <TextView
+            android:id="@+id/tvDivider"
+            style="@style/divider_color"
+            android:layout_marginTop="@dimen/eight_dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivUserImage"></TextView>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsFeilds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:scrollbars="vertical"
+            android:overScrollMode="never"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@+id/llCameraTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDivider">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvEmail"
+                    style="@style/text_view_main_info"
+                    android:hint="@string/email"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPhoneNumber"
+                    style="@style/text_view_main_info"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:hint="@string/phone_number"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmail"></androidx.appcompat.widget.AppCompatTextView>
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCountry"
+                    style="@style/text_view_main_info"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:hint="@string/country"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber">
+                </androidx.appcompat.widget.AppCompatTextView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvState"
+                    style="@style/text_view_main_info"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:hint="@string/state"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCountry"></androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCity"
+                    style="@style/text_view_main_info"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:hint="@string/city_"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvState"></androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWorksAt"
+                    style="@style/text_view_main_info"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:hint="@string/works_at"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCity"></androidx.appcompat.widget.AppCompatTextView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFavoriteDrink"
+                    style="@style/text_view_main_info"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:hint="@string/favorite_drink"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWorksAt"></androidx.appcompat.widget.AppCompatTextView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCocktailPhotos"
+                    style="@style/text_view_main_info"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:text="@string/cocktail_photos"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFavoriteDrink"></androidx.appcompat.widget.AppCompatTextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/llCameraTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nsFeilds"
+            app:layout_constraintBottom_toTopOf="@+id/llCocktailImages"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivPhotos"
+                android:scaleType="fitStart"
+                android:layout_width="@dimen/twenty_dp"
+                android:layout_height="@dimen/twenty_four"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:src="@drawable/camera" />
+
+            <TextView
+                android:id="@+id/tvPhotos"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="bottom"
+                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                android:textColor="@color/text_color"
+                style="@style/text_view_main_info"
+                android:layout_marginLeft="8dp"
+                android:text="@string/add_photos"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llCocktailImages"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/cocktail_images_height"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCameraTitle">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivImageOne"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/four_dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivImageTwo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/four_dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivImageThree"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitXY">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

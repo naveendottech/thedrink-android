@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9FCDC3</color>
+    <color name="colorPrimaryDark">#007879</color>
+    <color name="colorAccent">#9FCDC3</color>
+    <color name="loader_bg_color">#007879</color>
+    <color name="color_dim">#6A000000</color>
+    <color name="marker_info_window_bg">#194A40</color>
+    <color name="marker_popup_text_color">#3EABA6</color>
+    <color name="events_bg_color">#98CDC5</color>
+    <color name="events_text_color">#167069</color>
+    <color name="hint_text_color">#000000</color>
+    <color name="btn_pop_up_bg">#176b95</color>
+    <color name="edit_text_bg_color">#f5f6f7 </color>
+    <color name="text_color">#176b95</color>
+    <color name="radio_tint">#3c7471</color>
+    <color name="edit_text_hint_color">#8A424141</color>
+    <color name="text_color_black">#000000</color>
+    <color name="border_color">#A4807E7E</color>
+    <color name="transparent_black">#CC000000</color>
+    <color name="filter_bg_color">#f5f5f2</color>
+</resources>

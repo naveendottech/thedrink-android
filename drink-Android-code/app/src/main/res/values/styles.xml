@@ -1,0 +1,216 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MaterialAlertThemeStyle" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/popup_background</item>
+    </style>
+
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@android:color/white</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/text_color_black</item>
+
+         inactive track color (30% transparency)
+<!--        <item name="android:colorForeground">@android:color/white</item>-->
+    </style>
+
+    <style name="dialog_fragment_style" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+
+    <style name="dialog_fragment_style_full" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+
+    <style name="dialog_snackbar_style" parent="Theme.AppCompat.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+
+    <style name="pop_up_animation_style" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_out</item>
+    </style>
+
+    <style name="edit_text">
+        <item name="android:background">@color/edit_text_bg_color</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_NORMAL</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <item name="android:paddingTop">@dimen/five_dp</item>
+        <item name="android:paddingBottom">@dimen/five_dp</item>
+        <item name="android:paddingRight">@dimen/ten_dp</item>
+        <item name="android:paddingLeft">@dimen/ten_dp</item>
+    </style>
+
+    <style name="text_view_main_info">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <item name="android:paddingTop">@dimen/five_dp</item>
+        <item name="android:paddingBottom">@dimen/five_dp</item>
+        <item name="android:paddingRight">@dimen/ten_dp</item>
+        <item name="android:paddingLeft">@dimen/ten_dp</item>
+    </style>
+
+    <style name="heading_text_view">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/big_heading_text_size</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="cross_button">
+        <item name="android:layout_width">@dimen/cross_icon_hw</item>
+        <item name="android:layout_height">@dimen/cross_icon_hw</item>
+        <item name="android:padding">@dimen/eight_dp</item>
+    </style>
+
+
+    <style name="main_action_button">
+        <item name="android:paddingLeft">@dimen/twelve_dp</item>
+        <item name="android:paddingRight">@dimen/twelve_dp</item>
+        <item name="android:paddingTop">@dimen/twelve_dp</item>
+        <item name="android:paddingBottom">@dimen/twelve_dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_NORMAL_MINUS</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/main_action_popup_btn_bg</item>
+    </style>
+
+    <style name="border_no_solid">
+        <item name="android:paddingLeft">@dimen/twelve_dp</item>
+        <item name="android:paddingRight">@dimen/twelve_dp</item>
+        <item name="android:paddingTop">@dimen/twelve_dp</item>
+        <item name="android:paddingBottom">@dimen/twelve_dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_NORMAL_MINUS</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/btn_pop_up_bg</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/border_button_no_solid</item>
+    </style>
+
+    <style name="title_info_text_view">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_NORMAL</item>
+    </style>
+
+    <style name="divider_color">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/one_dp</item>
+        <item name="android:background">@color/border_color</item>
+    </style>
+
+
+    <style name="progressBarAlert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/text_color</item>
+        <item name="android:textColorPrimary">@color/text_color</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <!--UTITLITIES STYLES-->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="ToolbarOverlay" parent="Base.ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="alertButtonsLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">right|bottom</item>
+    </style>
+    <style name="alertBackground">
+        <item name="android:background">@drawable/dialog_background</item>
+        <item name="android:layout_margin">@dimen/BASIC_PADDING_PLUS_FIVE</item>
+        <item name="android:padding">@dimen/BASIC_PADDING_PLUS_FIVE</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="alertHeadingTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:paddingBottom">@dimen/BASIC_PADDING</item>
+        <item name="android:lines">1</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_NORMAL</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left</item>
+    </style>
+    <style name="alertMessagTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_marginBottom">@dimen/BASIC_PADDING</item>
+        <item name="android:gravity">left|top</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_NORMAL</item>
+    </style>
+    <style name="alertButtonStyles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/BASIC_PADDING_HALF</item>
+        <item name="android:textSize">@dimen/TEXT_SIZE_SMALL</item>
+        <item name="android:layout_marginRight">@dimen/BASIC_PADDING</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
+    </style>
+    <style name="alertListItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/BASIC_PADDING_HALF</item>
+        <item name="android:layout_marginBottom">@dimen/BASIC_PADDING_HALF</item>
+        <item name="android:layout_margin">@dimen/BASIC_PADDING_HALF</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!--UTITLITIES STYLES-->
+
+
+
+</resources>

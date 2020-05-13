@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="clickEvents"
+            type="com.mjdistillers.drinkthedrink.dialogs.MenuLoggedOutPopUp.ClickEventsMenuPopUp" />
+
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/ten_dp"
+    android:elevation="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/fifteen_dp"
+            app:layout_constraintRight_toRightOf="@+id/tvVisibleInvisible"
+            app:layout_constraintLeft_toLeftOf="@+id/tvFollowing"
+            app:layout_constraintTop_toBottomOf="@+id/ivFollowing"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvRegisterLogin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/eight_dp"
+                android:paddingBottom="@dimen/eight_dp"
+                android:onClick="@{(view)->clickEvents.onClickRegisterLogin(view)}"
+                android:textColor="@android:color/black"
+                android:text="@string/register_log_in"
+                android:gravity="left">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/tvFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/eight_dp"
+                android:paddingBottom="@dimen/eight_dp"
+                android:visibility="gone"
+                android:textColor="@android:color/black"
+                android:onClick="@{(view)->clickEvents.onClickFeedback(view)}"
+                android:text="@string/feedback"
+                android:gravity="left">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/tvContact"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/eight_dp"
+                android:paddingBottom="@dimen/eight_dp"
+                android:onClick="@{(view)->clickEvents.onClickContacts(view)}"
+                android:textColor="@android:color/black"
+                android:text="@string/contact"
+                android:gravity="left">
+            </TextView>
+
+        </LinearLayout>
+</androidx.cardview.widget.CardView>
+</layout>

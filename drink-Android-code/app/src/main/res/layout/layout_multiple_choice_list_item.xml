@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rlMultipleChoiceListItem"
+                style="@style/alertListItemStyle">
+
+    <TextView android:id="@+id/tvTextMultipleChoice"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@+id/checkboxMultipleChoice"
+              android:textSize="@dimen/TEXT_SIZE_NORMAL"
+              android:textColor="@android:color/black"
+              android:layout_marginLeft="@dimen/BASIC_PADDING"
+              android:text="ABC"/>
+
+    <CheckBox android:id="@+id/checkboxMultipleChoice"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignBaseline="@+id/tvTextMultipleChoice"/>
+
+</RelativeLayout>

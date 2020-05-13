@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickEvents"
+            type="com.mjdistillers.drinkthedrink.MainActivity.ClickEvents" />
+    </data>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvDummy"
+        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:id="@+id/tvDummy2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        ></TextView>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <fragment
+            android:id="@+id/mapFragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+      <!--  <TextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/loader_bg_color"
+            android:onClick="@{(view) -> clickEvents.onClickPickLocation(view)}"
+            android:padding="@dimen/five_dp"
+            android:lines="1"
+            android:paddingEnd="@dimen/fourty_dp"
+            android:textSize="@dimen/TEXT_SIZE_LARGE"
+            android:paddingTop="@dimen/four_dp"
+            android:paddingBottom="@dimen/four_dp"
+            android:background="@drawable/location_tv_bg"
+            android:layout_marginLeft="@dimen/eight_dp"
+            android:layout_toLeftOf="@+id/ivDtdLogo"
+            android:layout_alignTop="@+id/ivDtdLogo">
+          </TextView>-->
+
+
+
+
+
+        <!-- <fragment
+             android:id="@+id/autoCompleteSupportFragment"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             tools:layout="@layout/places_api_search_view_ui"
+             android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+             android:layout_marginLeft="@dimen/eight_dp"
+             android:layout_toLeftOf="@+id/ivDtdLogo"
+             android:layout_alignTop="@+id/ivDtdLogo">
+         </fragment>
+ -->
+
+
+        <ImageView
+            android:id="@+id/ivDtdLogo"
+            android:layout_width="@dimen/dtd_logo_width"
+            android:layout_height="@dimen/dtd_logo_height"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/five_dp"
+            android:src="@drawable/logo_light"></ImageView>
+
+        <TextView
+            android:id="@+id/tvDimBG"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent_black"
+            android:onClick="@{(view) -> clickEvents.onClicktvDimBG(view)}"
+            android:visibility="gone"></TextView>
+
+    </RelativeLayout>
+
+    <!-- bottom sheet layout -->
+    <RelativeLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
+        bind:behavior_hideable="false"
+        bind:layout_behavior=".others.CustomBottomSheetBehaviour">
+
+        <include
+            android:id="@+id/layoutBottomSheet"
+            layout="@layout/layout_bottom_sheet"
+            bind:clickEvents="@{clickEvents}">
+        </include>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/flprogressBar"
+        android:clickable="true"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTintMode="src_atop" />
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutLoader"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ProgressBar
+            android:layout_width="@dimen/hundred_dp"
+            android:layout_height="@dimen/hundred_dp"
+            android:layout_gravity="center"
+            android:progressTint="@color/loader_bg_color">
+        </ProgressBar>
+
+<!--
+        <ImageView
+            android:id="@+id/loaderImage"
+            android:layout_gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/d_loader"
+            ></ImageView>-->
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvMenuBackground"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_black">
+    </TextView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

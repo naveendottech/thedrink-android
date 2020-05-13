@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:layout_margin="@dimen/BASIC_PADDING"
+                                             android:orientation="vertical">
+
+    <Button android:id="@+id/btnSendSMS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send SMS to 9501381418"
+        />
+
+
+    <Button android:id="@+id/btnMakeCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Make call to 9501381418"
+    />
+
+    <Button android:id="@+id/btnSendEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send EMail To vabhi.shukar"
+    />
+
+    <Button android:id="@+id/btnSendToWhatsAppOnly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send To Whats App Only"
+    />
+
+    <Button android:id="@+id/btnText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Text Hi"
+    />
+
+
+    <Button android:id="@+id/btnOpenWebView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Page in Web browser"
+    />
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textSize="@dimen/TEXT_SIZE_NORMAL"
+              android:layout_marginTop="@dimen/BASIC_PADDING"
+              android:text="We can also share text with other specific apps like LinkedIn, Facebook, GooglePlus etc. Please check code for this"
+
+    />
+
+
+
+</LinearLayout>

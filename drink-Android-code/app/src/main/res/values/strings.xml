@@ -1,0 +1,274 @@
+<resources>
+    
+    <string name="aws_access_key_id" translatable="false">AKIAJWX7DJYWG4R75L4Q</string>
+    <string name="aws_secret_access_key" translatable="false">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</string>
+    <string name="aws_bucket" translatable="false">thedrinkimg</string>
+    
+    <string name="app_name">Drink the drink</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="distance">Distance :</string>
+    <string name="name">NAME</string>
+    <string name="first_name">FIRST NAME</string>
+    <string name="last_name">LAST NAME</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="user_name">USER NAME</string>
+    <string name="favorite_spirit">FAVORITE SPIRIT </string>
+    <string name="favorite_cocktail">FAVORITE COCKTAIL </string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="terms_and_policy">By creating an account, you agree to our Terms of Services and have read and understood the Privacy Policy</string>
+    <string name="terms_conditions">Terms And Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="i_am_a">I AM A</string>
+    <string name="log_in">Log In</string>
+    <string name="log_in_">LOG IN</string>
+    <string name="already_registered">Already Registered</string>
+    <string name="edit_profile">edit profile</string>
+    <string name="invite_friends">INVITE FRIENDS</string>
+    <string name="contacts">CONTACT</string>
+    <string name="today_events">TODAY EVENTS</string>
+    <string name="upcoming_events">UPCOMING EVENTS</string>
+    <string name="bar_address">BAR ADDRESS</string>
+    <string name="cocktail_photos">COCKTAIL PHOTOS</string>
+    <string name="add_photos">ADD PHOTOS</string>
+    <string name="works_at">WORKS AT </string>
+    <string name="favorite_drink">FAVOURITE DRINK : </string>
+    <string name="events">EVENTS</string>
+    <string name="specials">SPECIALS</string>
+    <string name="people">PEOPLE</string>
+    <string name="stores">STORES</string>
+    <string name="bars">BARS</string>
+
+    <string name="requested">Requested</string>
+    <string name="unfollow">Follower</string>
+    <string name="unfollow_back">Unfollow Back</string>
+    <string name="follow">&#160;&#160;Follow&#160;&#160;&#160;</string>
+    <string name="follow_back">Follow Back</string>
+
+
+    <!--UTILS STRINGS-->
+
+    <string name="action_settings">Settings</string>
+    <string name="hint_enter_username">Username</string>
+    <string name="enter_password">Password</string>
+    <string name="text_login_in">Login</string>
+    <string name="text_forget_password">Forget Password</string>
+    <string name="txt_remember_me">Remember Me</string>
+    <string name="txt_invalid_credentials">Invalid Credentials</string>
+    <string name="txt_enter_username_and_password">Enter Username And Password</string>
+    <string name="txt_enter_username">Enter Username</string>
+    <string name="txt_enter_passend_mailsword">Enter Password</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="fragment_transaction_was_not_committed">FRAGMENT TRANSACTION WAS NOT COMMITED DUE TO INCOMPLETE PARAMS</string>
+    <string name="android">Android</string>
+    <string name="header_mobile">Mobile</string>
+    <string name="header_web_front_ent">Web And Front End</string>
+    <string name="header_back_end">Backend</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="dashboard_title">Dashboard Title</string>
+    <string name="alert_utils">Alert Utilities</string>
+    <string name="date">Date Utils</string>
+    <string name="pickers">Pickers</string>
+    <string name="permissions">Permissions</string>
+    <string name="notifications">Notifications</string>
+    <string name="application">Application Utils</string>
+    <string name="crypto">Crypto Utils</string>
+    <string name="action_utils">Action Utils</string>
+    <string name="file_utils">File Utils</string>
+    <string name="PLZ_INSTALL_FILE_MANAGER">Please install a File Manager.</string>
+    <string name="choose_directory">Choose directory</string>
+    <string name="no_email_clients">There are no email clients installed.</string>
+    <string name="send_mail">Send mail...</string>
+    <string name="invalid_url">Invalid Url</string>
+    <string name="send_text">Send Text</string>
+    <string name="no_app_found">No app found</string>
+    <string name="txt_enter_password">Enter Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="phone_number_caps">PHONE NUMBER</string>
+    <string name="city">CITY : </string>
+    <string name="city_">CITY</string>
+    <string name="street_address">ADDRESS : </string>
+    <string name="save">SAVE</string>
+    <string name="states">STATES</string>
+    <string name="provinces">PROVINCES</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="create_account_camel">Create Account</string>
+    <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="visibility">VISIBILITY</string>
+    <string name="edit_profile_camel">Edit Profile</string>
+    <string name="favorite_drink_camel">Favorite Drink</string>
+    <string name="favorite_spirit_camel">Favorite Spirit</string>
+    <string name="favorite_cocktail_camel">Favorite Cocktail</string>
+    <string name="status">STATUS...</string>
+    <string name="message">Message</string>
+    <string name="following">Following</string>
+
+    <string name="followers">Followers</string>
+    <string name="my_status">MY STATUS</string>
+    <string name="country">COUNTRY</string>
+    <string name="state">STATE</string>
+    <string name="cocktail_image_updated">Cocktail Image Updated Successfully</string>
+    <string name="select_bars_or_stores">Select bars or stores</string>
+    <string name="contact">CONTACT</string>
+    <string name="register_log_in">REGISTER/LOG IN</string>
+    <string name="feedback">FEEDBACK</string>
+    <string name="alert">Alert!!</string>
+    <string name="ok">OK</string>
+    <string name="connect_internet">Please connect to internet</string>
+    <string name="enter_email_id">Please enter E-mail id</string>
+    <string name="choose_country">Please Choose Country First</string>
+    <string name="problem_occured">Some problem occurred</string>
+    <string name="choose_valid_image">Choose a valid image</string>
+    <string name="delivery">DELIVERY :</string>
+    <string name="delivery__">DELIVERY</string>
+    <string name="tasting">TASTING</string>
+    <string name="no_delivery">No Delivery</string>
+    <string name="nothing_to_show">Nothing to show!!</string>
+    <string name="no_data_found">No Data Found!!</string>
+    <string name="no_data_found_for_filter">No Data Found for %s , Please try some other keyword.</string>
+    <string name="please_wait">Please Wait...</string>
+    <string name="submit">SUBMIT</string>
+    <string name="specials_">Specials :</string>
+    <string name="events_">Events :</string>
+    <string name="messages">Messages</string>
+    <string name="in_progress">In Progress...</string>
+    <string name="choose_reciever">Please choose a receiver</string>
+    <string name="enter_message">Please enter text message</string>
+    <string name="people_name">People Name</string>
+    <string name="incorrect_user">Found incorrect user id</string>
+    <string name="location_permission_required">This permission is required to show bars and other data as per current location</string>
+    <string name="lat_lng_missing_prefs">Location is missing. Please Re-run the app.</string>
+    <string name="unable_fetching_location">Unable to fetch location</string>
+    <string name="request_sent_to">Request sent to</string>
+    <string name="request_not_sent">Request not sent</string>
+    <string name="logout">LOGOUT</string>
+    <string name="channel_description">Important DTD Notifications</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="no_notifications_found">No notifications found</string>
+    <string name="retry">Retry</string>
+    <string name="terms_and_conditions">Terms And Conditions</string>
+    <string name="send_email_invitation">Send email invitation</string>
+    <string name="send">SEND</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="recover">RECOVER</string>
+    <string name="e_mail_">E-MAIL...</string>
+    <string name="enter_feedback_first">Please enter feedback first</string>
+    <string name="success">Success</string>
+    <string name="update_password">Update Password</string>
+    <string name="update">Update</string>
+    <string name="updated">Updated</string>
+    <string name="online">ONLINE</string>
+    <string name="unable_to_get_uid">Unable to get UID</string>
+    <string name="unable_to_pick_latlong">Location was not picked</string>
+    <string name="choose_location">PICK LOCATION</string>
+    <string name="neither_nor_follower_following">Neither followers nor following were found</string>
+    <string name="incorrect_id_0">incorrect_id_zero</string>
+    <string name="profile_data_not_found">Profile data not found</string>
+    <string name="favorite_liquor">FAVORITE LIQUOR</string>
+    <string name="heading_for_working_at">This will send customers to your work</string>
+    <string name="tell_us_you_work">Tell us where you work.</string>
+    <string name="bar_name">BAR NAME</string>
+    <string name="speciality">SPECIALITY</string>
+    <string name="unable_get_states_provin">Unable to get states and provinces</string>
+    <string name="is_industry">Is Industry</string>
+    <string name="enter_frist_name">Enter first name</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_user_name">Enter user name</string>
+    <string name="updated_successfully">Updated Successfully</string>
+    <string name="enter_username">Please Enter Username</string>
+    <string name="enter_name">Please Enter Name</string>
+    <string name="enter_phone">Please Enter Phone Number</string>
+    <string name="choose_country_">Choose country</string>
+    <string name="choose_state">Choose state</string>
+    <string name="allow_permissions">Please allow Permissions</string>
+    <string name="features">Features :</string>
+    <string name="filter">FILTER</string>
+    <string name="one_dollor">$</string>
+    <string name="two_dollor">$$</string>
+    <string name="drinks_only">DRINKS ONLY</string>
+    <string name="restaurant">RESTAURANT</string>
+    <string name="the_me_bar">THE ME BAR</string>
+    <string name="night_club">NIGHT CLUB</string>
+    <string name="patio">PATIO</string>
+    <string name="three_dollor">$$$</string>
+    <string name="no_filter_for_people">No filter for people</string>
+    <string name="follow_bar">Follow Bar</string>
+    <string name="unfollow_store">Unfollow Store</string>
+    <string name="notificaions_message_one">You have started following %1$s</string>
+    <string name="notificaions_message_two">%1$s has started following you</string>
+    <string name="cannt_enter">Invalid character %1$s </string>
+
+    <string name="follow_bar_cc">Follow Bar</string>
+    <string name="follow_store_cc">Follow Store</string>
+    <string name="unfollow_bar_cc">Unfollow Bar</string>
+    <string name="unfollow_store_cc">Unfollow Store</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="i_work_in_following_industry">I WORK IN FOLLOWING INDUSTRY</string>
+    <string name="tell_us_speciality">TELL US YOUR SPECIALITY</string>
+    <string name="favorite_alcohol">FAVORITE ALCOHOL</string>
+    <string name="tell_us_alcohol">TELL US YOUR FAVORITE ALCOHOL</string>
+    <string name="tell_us_day">WHAT DAY OF WEEK YOU GO OUT?</string>
+    <string name="day">DAY</string>
+    <string name="alcohol_online">DO YOU PURCHASE ALCOHOL ONLINE</string>
+    <string name="continueee">CONTINUE</string>
+    <string name="hospitality">Hospitality</string>
+    <string name="retail_liquore">Retail Liquor</string>
+    <string name="event">Event</string>
+    <string name="user_type">USER TYPE : </string>
+    <string name="enter_country">Select Country Name</string>
+    <string name="enter_state">Select State</string>
+    <string name="enter_city">Enter City Name</string>
+    <string name="enter_valid_phone">Enter valid phone number</string>
+    <string name="enter_role">Choose User Type</string>
+    <string name="search_people">SEARCH PEOPLE</string>
+    <string name="message_follow_when_no_login">Please login</string>
+    <string name="text_message">TEXT MESSAGE</string>
+    <string name="invite_through">Invite Through</string>
+
+    <string name="invite_text">I recommend you to download and use Drink The Drink App.
+        /n
+        For IOs:
+        https://apps.apple.com/us/app/drinkthedrink/id1487112489?ls=1
+        /n
+        For Android
+        https://play.google.com/store/apps/details?id=com.mjdistillers.drinkthedrink
+    </string>
+
+    <string name="subject_invitaion">DTD invitation</string>
+    <string name="contact_description">We\'d love to hear your feedback about our app. Fill out the form below and we will get back to you as soon as possible.</string>
+    <string name="more_than_five">Password length should be more than five</string>
+    <string name="old_password">OLD PASSWORD</string>
+    <string name="incorrect_role_received">Incorrect role received from server, This e-mail id already used.</string>
+    <string name="from_camera">CAMERA</string>
+    <string name="from_media">MEDIA</string>
+    <string name="pick_image">PICK IMAGE</string>
+    <string name="hours">Hours : </string>
+    <string name="phone">Phone</string>
+    <string name="employees">EMPLOYEES</string>
+    
+    <string name="search">Search</string>
+    <string name="find">Find</string>
+    <string name="drink">Drink</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+
+    <string name="search_message">Drink The Drink handpicks the right bars in your area based on our customizable search features which includes specials, events and amenities.</string>
+    <string name="find_message">whether you’re looking for happy hours, swim up pool bars, ladies night, roof-top patio, liquor store delivery and discounts or anything else, DTD will help you find exactly what you’re looking for.</string>
+    <string name="drink_message">Drink The Drink provides you with a platform to have a drink, connect with others and enjoy good times together.</string>
+    <string name="block">Block</string>
+    <string name="unblock">Unblock</string>
+
+    <string-array name="array_favorite_alcohol">
+        <item>Choose Favorite Alcohal</item>
+        <item>Vodka</item>
+        <item>Gin</item>
+        <item>Rum</item>
+        <item>Bourbon</item>
+        <item>Tequila</item>
+    </string-array>
+
+</resources>

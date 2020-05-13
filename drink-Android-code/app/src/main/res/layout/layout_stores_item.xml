@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="markerModel"
+            type="com.mjdistillers.drinkthedrink.model.MarkerModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:background="@drawable/selector_bg"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivBar"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="@dimen/four_dp"
+        android:layout_marginTop="@dimen/four_dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/four_dp"
+        android:textColor="@color/text_color"
+        android:text="@{markerModel.barName}"
+        android:textSize="@dimen/TEXT_SIZE_NORMAL"
+        app:layout_constraintLeft_toLeftOf="@id/ivBar"
+        app:layout_constraintStart_toStartOf="@+id/ivBar"
+        app:layout_constraintRight_toRightOf="@id/ivBar"
+        app:layout_constraintTop_toBottomOf="@+id/ivBar" />
+
+    <TextView
+        android:id="@+id/tvCost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color"
+        android:text="@{markerModel.dollarStr}"
+        android:textSize="@dimen/TEXT_SIZE_NORMAL"
+        app:layout_constraintLeft_toLeftOf="@id/ivBar"
+        app:layout_constraintRight_toRightOf="@id/ivBar"
+        app:layout_constraintStart_toStartOf="@+id/ivBar"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

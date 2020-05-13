@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="filterModel"
+            type="com.mjdistillers.drinkthedrink.model.SearchFilterModel" />
+
+        <import type="android.view.View"/>
+        <import type="com.mjdistillers.drinkthedrink.DtdConstants"></import>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llMainFilterAdapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="@dimen/eight_dp"
+        android:paddingTop="@dimen/four_dp"
+        android:paddingBottom="@dimen/four_dp"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/llImageName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/four_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivUserImage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/list_side_icon_wh"
+                android:layout_weight="0.4"
+                android:maxWidth="@dimen/list_side_icon_wh"></ImageView>
+
+            <LinearLayout
+                android:id="@+id/lltextDetail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    style="@style/title_info_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/four_dp"
+                    android:singleLine="true"
+                    android:text="@{filterModel.name}"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/tvDistance"
+                    style="@style/title_info_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/four_dp"
+                    android:layout_marginTop="@dimen/twelve_dp"
+                    android:singleLine="true"
+                    android:text="@{filterModel.distance}"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+
+        <TextView
+            android:id="@+id/tvFollowFolowing"
+            style="@style/main_action_button"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/twenty_dp"
+            android:layout_marginRight="@dimen/twenty_dp"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/ten_dp"
+            android:paddingTop="@dimen/six_dp"
+            android:paddingRight="@dimen/ten_dp"
+            android:paddingBottom="@dimen/six_dp"
+            android:text="@string/followers"
+            android:textAllCaps="true"
+            android:textSize="@dimen/TEXT_SIZE_SMALL"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tvFollowFolowingBlock"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/guideline2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/tvFollowFolowingBlock"
+            style="@style/main_action_button"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/twenty_dp"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:layout_marginRight="@dimen/twenty_dp"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/ten_dp"
+            android:paddingTop="@dimen/six_dp"
+            android:paddingRight="@dimen/ten_dp"
+            android:paddingBottom="@dimen/six_dp"
+            android:text="@string/block"
+            android:textAllCaps="true"
+            android:textSize="@dimen/TEXT_SIZE_SMALL"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/guideline2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowFolowing"></TextView>
+
+        <TextView
+            android:id="@+id/tvFollowFolowingMessage"
+            style="@style/main_action_button"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/four_dp"
+            android:layout_marginRight="@dimen/fifty_dp"
+            android:layout_weight="0.3"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/six_dp"
+            android:paddingBottom="@dimen/six_dp"
+            android:text="@string/follow"
+            android:textAllCaps="true"
+            android:textSize="@dimen/TEXT_SIZE_SMALL"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tvBlockMessage"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/guideline2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/tvBlockMessage"
+            style="@style/main_action_button"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/four_dp"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:layout_marginRight="@dimen/fifty_dp"
+            android:layout_weight="0.3"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/six_dp"
+            android:paddingBottom="@dimen/six_dp"
+            android:text="@string/block"
+            android:textAllCaps="true"
+            android:textSize="@dimen/TEXT_SIZE_SMALL"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/guideline2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowFolowingMessage"></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

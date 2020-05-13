@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="dataModel"
+            type="com.mjdistillers.drinkthedrink.model.response.chat_all_user.Datum" />
+    </data>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="@dimen/eight_dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ivUserImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/view_pager_images_height_ads"
+        android:layout_weight="0.3">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:lines="1"
+        android:textSize="@dimen/TEXT_SIZE_LARGE"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/four_dp"
+        android:layout_marginRight="@dimen/eight_dp"
+        android:textColor="@color/text_color">
+    </TextView>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:text="@{dataModel.message}"
+        android:textSize="@dimen/TEXT_SIZE_NORMAL"
+        android:layout_marginTop="@dimen/four_dp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/text_color"
+        app:layout_constraintBottom_toBottomOf="@id/ivUserImage"
+        app:layout_constraintLeft_toRightOf="@id/ivUserImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivUserImage">
+    </TextView>
+
+</LinearLayout>
+</layout>

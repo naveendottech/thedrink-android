@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:paddingTop="@dimen/four_dp"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/four_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llImageName"
+            android:layout_width="match_parent"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/guideline2"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/four_dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivUserImage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/list_side_icon_wh"
+                android:layout_weight="0.3"
+                android:maxWidth="@dimen/list_side_icon_wh"></ImageView>
+
+            <TextView
+                android:id="@+id/tvMessage"
+                style="@style/title_info_text_view"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:visibility="visible"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/TEXT_SIZE_LARGE">
+            </TextView>
+
+
+          <!--  <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="0.6"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+-->
+
+              <!--  <TextView
+                    android:id="@+id/tvUserName"
+                    style="@style/title_info_text_view"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    android:singleLine="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/two_dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE">
+                </TextView>-->
+
+               <!-- <TextView
+                    android:id="@+id/tvDistance"
+                    style="@style/title_info_text_view"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="@dimen/two_dp"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE">
+                </TextView>-->
+
+<!--
+
+                <TextView
+                    android:id="@+id/tvDisabled"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/eight_dp"
+                    android:textStyle="bold|italic"
+                    android:textSize="@dimen/TEXT_SIZE_LARGE"
+                    android:layout_gravity="bottom"
+                    android:textColor="@color/text_color"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:paddingRight="@dimen/ten_dp"
+                    android:paddingLeft="@dimen/ten_dp"
+                    />
+-->
+
+            <!--</LinearLayout>-->
+<!--
+        </LinearLayout>
+-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAccept"
+                style="@style/main_action_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:text="@string/accept"
+                android:textAllCaps="true"
+                android:visibility="visible"
+                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                android:layout_marginRight="@dimen/ten_dp"
+                app:layout_constraintTop_toTopOf="@+id/llImageName"
+                app:layout_constraintBottom_toBottomOf="@+id/llImageName"
+                app:layout_constraintLeft_toRightOf="@id/guideline2"
+                app:layout_constraintRight_toRightOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvDecline"
+                style="@style/main_action_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:text="@string/decline"
+                android:textAllCaps="true"
+                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:visibility="visible"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="20dp"
+    app:cardBackgroundColor="@color/marker_info_window_bg"
+    app:cardCornerRadius="15dp">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/top_bottom_radius"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvBarName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/marker_popup_text_color"
+        android:textSize="@dimen/text_size_marker_pop_up_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <ImageView
+        android:id="@+id/ivCross"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginLeft="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBarName"
+        app:layout_constraintLeft_toRightOf="@+id/tvBarName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBarName"
+        app:layout_constraintVertical_bias="0.52"
+        app:srcCompat="@drawable/close" />
+
+    <TextView
+        android:id="@+id/tvDistanceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/distance"
+        android:textColor="@color/marker_popup_text_color"
+        android:textSize="@dimen/text_size_marker_pop_up_distance"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@+id/tvDistance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBarName"></TextView>
+
+    <TextView
+        android:id="@+id/tvDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvDistanceTitle"
+        android:textColor="@color/marker_popup_text_color"
+        android:textSize="@dimen/text_size_marker_pop_up_distance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tvDistanceTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvBarName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

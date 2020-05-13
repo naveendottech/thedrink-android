@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="comingEvents"
+            type="com.mjdistillers.drinkthedrink.model.response.bar_details.ComingEvent" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:paddingLeft="@dimen/eight_dp"
+        android:paddingRight="@dimen/eight_dp"
+        android:paddingBottom="@dimen/five_dp"
+        android:paddingTop="@dimen/five_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivTodayEvents"
+            android:layout_width="0dp"
+            android:padding="@dimen/ten_dp"
+            android:layout_height="0dp"
+            android:scaleType="fitStart"
+            app:layout_constraintHorizontal_weight="0.2"
+            app:layout_constraintBottom_toBottomOf="@id/llEventDetail"
+            app:layout_constraintEnd_toStartOf="@+id/llEventDetail"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <LinearLayout
+            android:id="@+id/llEventDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="0.8"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivTodayEvents">
+
+            <TextView
+                android:id="@+id/tvEventName"
+                android:text="@{comingEvents.eventType.equals(`Other`)?comingEvents.other_type:comingEvents.eventType}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/TEXT_SIZE_SMALL"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_marginBottom="@dimen/five_dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvEventTime"
+                android:textStyle="bold"
+                android:textColor="@color/text_color"
+                android:text='@{comingEvents.startTime+" - "+comingEvents.endTime}'
+                android:textSize="@dimen/TEXT_SIZE_SMALL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/tvEventsDescription"
+                android:text="@{comingEvents.eventDesc}"
+                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

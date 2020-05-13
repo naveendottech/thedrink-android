@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llFollowUnfollow"
+    android:background="@android:color/white"
+    android:paddingTop="@dimen/four_dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivUserImage"
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:maxWidth="@dimen/list_side_icon_wh"
+        android:layout_height="@dimen/list_side_icon_wh"></ImageView>
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="0dp"
+        style="@style/title_info_text_view"
+        android:layout_weight="0.6"
+        android:textStyle="bold"
+        android:textSize="@dimen/TEXT_SIZE_NORMAL"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="@dimen/four_dp">
+
+    </TextView>
+
+</LinearLayout>

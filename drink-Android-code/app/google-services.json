@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "426362061882",
+    "firebase_url": "https://drinkthedrink-108a4.firebaseio.com",
+    "project_id": "drinkthedrink-108a4",
+    "storage_bucket": "drinkthedrink-108a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426362061882:android:969ce5a38bc6cf08c9e103",
+        "android_client_info": {
+          "package_name": "com.mjdistillers.drinkthedrink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426362061882-qinqdjtqqjegg6copa7l2adkb6elm6lk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mjdistillers.drinkthedrink",
+            "certificate_hash": "b6ec3e9f7033937b360305a8f4998f7248092c2f"
+          }
+        },
+        {
+          "client_id": "426362061882-e5hr9738hhdrcmbjnpd3qufo3ahkstcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBWOpk58Os2M4EzAzEJarHNvbkVQ-0FHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426362061882-e5hr9738hhdrcmbjnpd3qufo3ahkstcn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "426362061882-7sq00mo6693b87o22tkbo8jqu6u2h2ok.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.drinkthe.drink"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

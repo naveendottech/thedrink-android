@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/llAlerts"
+        android:layout_margin="@dimen/BASIC_PADDING">
+
+
+
+    <Button android:id="@+id/btnInformationAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Information Alert"/>
+
+
+    <Button android:id="@+id/btnInformationNoButtonsAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Information With Action Buttons Alert"/>
+
+    <Button android:id="@+id/btnAgreeDisagreeAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Agree Disagree Alert"/>
+
+
+    <Button android:id="@+id/btnHeaderInformationWithNoActionsAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Header Information with no Action Alert"/>
+
+    <Button android:id="@+id/btnInformationWithNoActionsAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Information with no Action Alert"/>
+
+    <Button android:id="@+id/btnOneChoiceAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="One Choice Alert"/>
+
+    <Button android:id="@+id/btnMultiChoiceAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Mult Choice Alert"/>
+
+
+
+</LinearLayout>

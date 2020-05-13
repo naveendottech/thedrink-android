@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="loginClickEvents"
+            type="com.mjdistillers.drinkthedrink.dialogs.LoginDialog.LoginClickEvents" />
+
+        <variable
+            name="dataModel"
+            type="com.mjdistillers.drinkthedrink.model.request.GetUserLoginRequest" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten_dp"
+        android:background="@drawable/register_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/twenty_dp">
+
+
+        <TextView
+            android:id="@+id/tvCreateAccount"
+            style="@style/heading_text_view"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/login"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            style="@style/cross_button"
+            android:onClick="@{(view)-> loginClickEvents.onClickClose(view)}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/close" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsFeilds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintTop_toBottomOf="@+id/tvCreateAccount"
+            app:layout_constraintBottom_toTopOf="@+id/tvTermsAndPolicy"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etFirstName"
+                    android:text="@={dataModel.email}"
+                    android:hint="@string/email"
+                    android:textColorHint="@color/edit_text_hint_color"
+                    android:layout_marginTop="@dimen/sixteen_dp"
+                    style="@style/edit_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </androidx.appcompat.widget.AppCompatEditText>
+
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etPassword"
+                    style="@style/edit_text"
+                    android:layout_marginTop="8dp"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/edit_text_hint_color"
+                    android:hint="@string/password"
+                    android:text="@={dataModel.password}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etFirstName">
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:text="@string/forgot_password"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            android:onClick="@{(view)-> loginClickEvents.onClickForgotPassword(view)}"
+            android:textColor="@color/text_color"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nsFeilds"
+
+            ></TextView>
+
+
+        <TextView
+            android:id="@+id/tvCreateAccountEvent"
+            style="@style/main_action_button"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:onClick="@{(view)-> loginClickEvents.onClickLogin(view)}"
+            android:text="@string/log_in_"
+            android:paddingRight="@dimen/thirty_dp"
+            android:paddingLeft="@dimen/thirty_dp"
+            app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+            app:layout_constraintBottom_toTopOf="@+id/tvDummy"
+            app:layout_constraintLeft_toLeftOf="parent"></TextView>
+
+        <View
+            android:id="@+id/tvDummy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/hundred_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+        </View>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

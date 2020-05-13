@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickEvents"
+            type="com.mjdistillers.drinkthedrink.MainActivity.ClickEvents" />
+
+        <variable
+            name="CheckChanged"
+            type="android.widget.CompoundButton.OnCheckedChangeListener" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/flMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/fifty_dp"
+        android:background="@drawable/top_radius"
+        android:fitsSystemWindows="true"
+        style="?attr/bottomSheetStyle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivExpand"
+                android:layout_width="match_parent"
+                android:paddingTop="@dimen/four_dp"
+                android:paddingBottom="@dimen/four_dp"
+                android:layout_height="30dp"
+                android:onClick="@{(view) -> clickEvents.onClickivExpand(view)}"
+                android:src="@drawable/arrow_right"
+                android:layout_marginBottom="@dimen/five_dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivHamburgur"
+                android:layout_width="@dimen/hamburgur_height_width"
+                android:layout_height="@dimen/hamburgur_height_width"
+                android:layout_marginStart="@dimen/eight_dp"
+                android:layout_marginLeft="@dimen/twelve_dp"
+                android:layout_marginEnd="@dimen/four_dp"
+                android:layout_marginTop="@dimen/five_dp"
+                android:layout_marginBottom="@dimen/fifteen_dp"
+                android:onClick="@{(view) -> clickEvents.onClickivHamburgur(view)}"
+                android:padding="@dimen/five_dp"
+                android:src="@drawable/toggle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivExpand" />
+
+            <TextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loader_bg_color"
+                android:onClick="@{(view) -> clickEvents.onClickPickLocation(view)}"
+                android:padding="@dimen/five_dp"
+                android:layout_marginRight="@dimen/sixteen_dp"
+                android:lines="1"
+                android:layout_marginLeft="@dimen/eight_dp"
+                android:paddingEnd="@dimen/fourty_dp"
+                android:textSize="@dimen/TEXT_SIZE_LARGE"
+                android:paddingTop="@dimen/four_dp"
+                android:paddingBottom="@dimen/four_dp"
+                android:background="@drawable/location_tv_bg"
+                app:layout_constraintTop_toTopOf="@+id/ivHamburgur"
+                app:layout_constraintBottom_toBottomOf="@+id/ivHamburgur"
+                app:layout_constraintLeft_toRightOf="@+id/ivHamburgur"
+                app:layout_constraintRight_toRightOf="parent">
+            </TextView>
+
+            <ImageView
+                android:layout_width="@dimen/fourty_dp"
+                android:layout_height="0dp"
+                android:src="@drawable/location_search"
+                app:layout_constraintTop_toTopOf="@+id/autoCompleteTextView"
+                app:layout_constraintBottom_toBottomOf="@id/autoCompleteTextView"
+                app:layout_constraintRight_toRightOf="@id/autoCompleteTextView"
+                android:padding="@dimen/four_dp">
+            </ImageView>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/coordiLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintRight_toRightOf="@id/autoCompleteTextView"
+                app:layout_constraintLeft_toLeftOf="@id/ivHamburgur"
+                app:layout_constraintBottom_toTopOf="@+id/vpAdvertisement"
+                app:layout_constraintTop_toBottomOf="@+id/ivHamburgur">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@id/ivHamburgur"
+                    app:layout_constraintRight_toRightOf="@id/autoCompleteTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/ivHamburgur">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clFilterOuter"
+                        android:layout_width="match_parent"
+                        android:background="@color/quantum_white_100"
+                        android:paddingBottom="@dimen/four_dp"
+                        android:layout_height="wrap_content"
+                        app:layout_scrollFlags="scroll|enterAlways">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clFilter"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="8dp"
+                            android:focusableInTouchMode="true"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.Group
+                                android:id="@+id/groupFilterOptions"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                app:constraint_referenced_ids="rbOneDollor,rbTwoDollor, rbThreeDollor, rbSpecialss, rbDrinksOnly, rbRestaurants, rbTheMeBar, rbNightClub, rbEvents, rbPatio, spacerLeftTV, spacerRightTV, clFilterBG"></androidx.constraintlayout.widget.Group>
+
+                            <LinearLayout
+                                android:id="@+id/rbBars"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="@dimen/five_dp"
+                                android:background="@color/quantum_white_100"
+                                android:onClick="@{(view) -> clickEvents.onClickrbBars(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+
+                                <ImageView
+                                    android:id="@+id/ivBars"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvBars"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/bars"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbStoress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginLeft="36dp"
+                                android:onClick="@{(view) -> clickEvents.onClickrbStores(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toRightOf="@+id/rbBars"
+                                app:layout_constraintTop_toTopOf="parent">
+
+
+                                <ImageView
+                                    android:id="@+id/ivStoress"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvStores"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/stores"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbPeopless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="36dp"
+                                android:onClick="@{(view) -> clickEvents.onClickrbPeople(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintStart_toEndOf="@+id/rbStoress"
+                                app:layout_constraintTop_toTopOf="parent">
+
+
+                                <ImageView
+                                    android:id="@+id/ivPeopless"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvPeople"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/people"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llFilter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="36dp"
+                                android:onClick="@{(view) -> clickEvents.onClickButtonFilter(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintStart_toEndOf="@+id/rbPeopless"
+                                app:layout_constraintTop_toTopOf="parent">
+
+
+                                <ImageView
+                                    android:id="@+id/ivFilter"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/ic_filter_icon"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvFilter"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/filter"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvDivider"
+                                style="@style/divider_color"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/one_dp"
+                                android:layout_marginTop="@dimen/two_dp"
+                                android:layout_marginRight="@dimen/twenty_dp"
+                                android:layout_marginBottom="@dimen/two_dp"
+                                android:background="@android:color/transparent"
+                                app:layout_constraintLeft_toLeftOf="@id/rbBars"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/rbBars"></TextView>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clFilterBG"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/filter_bg_color"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="@+id/rbNightClub"
+                                app:layout_constraintLeft_toLeftOf="@+id/spacerLeftTV"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/rbOneDollor"></androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <TextView
+                                android:id="@+id/spacerLeftTV"
+                                android:layout_width="@dimen/ten_dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintRight_toLeftOf="@+id/rbOneDollor"
+                                app:layout_constraintTop_toBottomOf="@id/rbOneDollor"></TextView>
+
+                            <TextView
+                                android:id="@+id/spacerRightTV"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                app:layout_constraintLeft_toRightOf="@+id/rbTheMeBar"
+                                app:layout_constraintRight_toRightOf="@+id/tvDivider"
+                                app:layout_constraintTop_toBottomOf="@id/rbSpecialss"></TextView>
+
+                            <LinearLayout
+                                android:id="@+id/rbOneDollor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickOneDollor(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingRight="@dimen/twenty_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@id/rbBars"
+                                app:layout_constraintTop_toBottomOf="@id/rbSpecialssNoFilter">
+
+
+                                <ImageView
+                                    android:id="@+id/ivOneDollor"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvOneDolllor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/one_dollor"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbTwoDollor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickTwoDollor(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingRight="@dimen/twenty_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@id/rbStoress"
+                                app:layout_constraintTop_toTopOf="@id/rbOneDollor">
+
+
+                                <ImageView
+                                    android:id="@+id/ivTwoDollor"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvTwoDolllor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/two_dollor"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbThreeDollor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickThreeDollor(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@id/rbPeopless"
+                                app:layout_constraintTop_toTopOf="@id/rbTwoDollor">
+
+
+                                <ImageView
+                                    android:id="@+id/ivThreeDollor"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvThreeDolllor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/three_dollor"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbSpecialss"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickSpecialsInFilter(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@id/rbTheMeBar"
+                                app:layout_constraintTop_toTopOf="@id/rbOneDollor">
+
+
+                                <ImageView
+                                    android:id="@+id/ivSpecialssInFilter"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvSpecials"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/specials"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbDrinksOnly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickDrinksOnly(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@id/rbOneDollor"
+                                app:layout_constraintTop_toBottomOf="@id/rbOneDollor">
+
+
+                                <ImageView
+                                    android:id="@+id/ivDrinksOnly"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvDrinksOnly"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/drinks_only"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbRestaurants"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginLeft="@dimen/twenty_four"
+                                android:onClick="@{(view) -> clickEvents.onClickRestaurants(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toRightOf="@id/rbDrinksOnly"
+                                app:layout_constraintTop_toTopOf="@id/rbDrinksOnly">
+
+
+                                <ImageView
+                                    android:id="@+id/ivRestaurants"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvRestaurants"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/restaurant"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbTheMeBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_marginLeft="@dimen/twenty_four"
+                                android:onClick="@{(view) -> clickEvents.onClickTheMeBar(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toRightOf="@id/rbRestaurants"
+                                app:layout_constraintTop_toTopOf="@id/rbDrinksOnly">
+
+
+                                <ImageView
+                                    android:id="@+id/ivTheMeBar"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvTheMeBar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:autoSizeTextType="uniform"
+                                    android:text="@string/the_me_bar"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbNightClub"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickNightClub(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@+id/rbDrinksOnly"
+                                app:layout_constraintTop_toBottomOf="@+id/rbDrinksOnly">
+
+
+                                <ImageView
+                                    android:id="@+id/ivNightClub"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvNightClub"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/night_club"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbEvents"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickEventsInFilter(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                android:visibility="visible"
+                                app:layout_constraintLeft_toLeftOf="@+id/rbRestaurants"
+                                app:layout_constraintTop_toTopOf="@+id/rbNightClub">
+
+
+                                <ImageView
+                                    android:id="@+id/ivEventsNoFilter"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvEvents"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/events"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbPatio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickPatio(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@+id/rbTheMeBar"
+                                app:layout_constraintTop_toTopOf="@+id/rbNightClub">
+
+
+                                <ImageView
+                                    android:id="@+id/ivPatio"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvPatio"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/patio"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clFilterSmallBG"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:background="@color/filter_bg_color"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="@+id/rbSpecialssNoFilter"
+                                app:layout_constraintLeft_toLeftOf="@+id/spacerSmLeftTV"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/rbSpecialssNoFilter"></androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <TextView
+                                android:id="@+id/spacerSmLeftTV"
+                                android:layout_width="@dimen/ten_dp"
+                                android:layout_height="0dp"
+                                android:visibility="visible"
+                                app:layout_constraintTop_toTopOf="@id/rbSpecialssNoFilter"
+                                app:layout_constraintRight_toLeftOf="@+id/rbSpecialssNoFilter"
+                                ></TextView>
+<!--
+
+                            <TextView
+                                android:id="@+id/spacerSmRightTV"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:visibility="visible"
+                                app:layout_constraintLeft_toRightOf="@+id/rbTheMeBar"
+                                app:layout_constraintRight_toRightOf="@+id/tvDivider"
+                                app:layout_constraintTop_toBottomOf="@id/rbSpecialss"></TextView>
+-->
+
+                            <LinearLayout
+                                android:id="@+id/rbSpecialssNoFilter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickrbSpecials(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@id/rbBars"
+                                app:layout_constraintTop_toBottomOf="@id/tvDivider">
+
+
+                                <ImageView
+                                    android:id="@+id/ivSpecialss"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvSpecialsAndDelivery"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/specials"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/rbEventsNoFilter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:onClick="@{(view) -> clickEvents.onClickrbEvents(view)}"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:tag="unsel"
+                                app:layout_constraintLeft_toLeftOf="@+id/rbStoress"
+                                app:layout_constraintTop_toTopOf="@+id/rbSpecialssNoFilter">
+
+
+                                <ImageView
+                                    android:id="@+id/ivEvents"
+                                    android:layout_width="@dimen/radio_btn_height_width"
+                                    android:layout_height="@dimen/radio_btn_height_width"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="@dimen/two_dp"
+                                    android:src="@drawable/btn_unsel_radio"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/tvEventsAndTasting"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/events"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/filter_text_size"></TextView>
+
+                            </LinearLayout>
+
+
+                            <androidx.constraintlayout.widget.Group
+                                android:id="@+id/groupFilterItemsNotRequredInPeople"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="visible"
+                                app:constraint_referenced_ids="rbSpecialssNoFilter,rbEventsNoFilter, clFilterSmallBG, spacerSmLeftTV"></androidx.constraintlayout.widget.Group>
+
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/etSearch"
+                                style="@style/edit_text"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/fifteen_dp"
+                                android:layout_marginTop="@dimen/four_dp"
+                                android:layout_marginBottom="@dimen/four_dp"
+                                android:lines="1"
+                                android:paddingLeft="@dimen/eight_dp"
+                                android:paddingRight="@dimen/eight_dp"
+                                android:singleLine="true"
+                                android:textColorHint="@color/edit_text_hint_color"
+                                android:visibility="gone"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="@+id/tvDivider"
+                                app:layout_constraintTop_toBottomOf="@id/rbSpecialss"></androidx.appcompat.widget.AppCompatEditText>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivFileterETSearch"
+                                android:layout_width="@dimen/thirty_dp"
+                                android:layout_height="0dp"
+                                android:layout_marginTop="@dimen/four_dp"
+                                android:layout_marginBottom="@dimen/four_dp"
+                                android:onClick="@{(view) -> clickEvents.onClickFilterETSearchIcon(view)}"
+                                android:src="@drawable/search"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="@id/etSearch"
+                                app:layout_constraintRight_toRightOf="@id/etSearch"
+                                app:layout_constraintTop_toTopOf="@id/etSearch" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivFileterETCross"
+                                android:layout_width="@dimen/thirty_dp"
+                                android:layout_height="0dp"
+                                android:layout_marginTop="@dimen/four_dp"
+                                android:layout_marginRight="@dimen/four_dp"
+                                android:layout_marginBottom="@dimen/four_dp"
+                                android:onClick="@{(view) -> clickEvents.onClickCross(view)}"
+                                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="@id/ivFileterETSearch"
+                                app:layout_constraintRight_toLeftOf="@+id/ivFileterETSearch"
+                                app:layout_constraintTop_toTopOf="@id/ivFileterETSearch"></androidx.appcompat.widget.AppCompatImageView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvStores"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/eight_dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/clFilter">
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <ImageView
+                            android:id="@+id/ivArrowLeft"
+                            android:alpha="0.5"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:elevation="@dimen/two_dp"
+                            android:onClick="@{(view) -> clickEvents.onClickLeftArrow(view)}"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/rvStores"
+                            app:layout_constraintBottom_toBottomOf="@+id/rvStores"
+                            android:layout_width="@dimen/fourty_dp"
+                            android:layout_height="@dimen/fourty_dp"
+                            app:srcCompat="@drawable/ic_left_arrow">
+                        </ImageView>
+
+                        <ImageView
+                            android:id="@+id/ivArrowRight"
+                            android:alpha="0.5"
+                            android:visibility="gone"
+                            android:onClick="@{(view) -> clickEvents.onClickRightArrow(view)}"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/rvStores"
+                            app:layout_constraintBottom_toBottomOf="@+id/rvStores"
+                            android:layout_centerVertical="true"
+                            android:layout_width="@dimen/fourty_dp"
+                            android:layout_height="@dimen/fourty_dp"
+                            app:srcCompat="@drawable/ic_right_arrow">
+                        </ImageView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/ten_dp"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:layout_constraintBottom_toTopOf="@+id/vpAdvertisement"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDividerBarImges">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clOfNestedScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/vpBarImages"
+                            android:layout_width="0dp"
+                            android:clickable="true"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/four_dp"
+                            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                            app:layout_constraintHorizontal_bias="0.45"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintHorizontal_weight="0.5"
+                            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/linearLayout">
+                        </androidx.viewpager.widget.ViewPager>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="top"
+                            android:onClick="@{(view)-> clickEvents.onClickFollowBarsStores(view)}"
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:paddingLeft="@dimen/five_dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/vpBarImages"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_weight="0.55"
+                            app:layout_constraintStart_toEndOf="@+id/vpBarImages"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvBarName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:clickable="true"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/TEXT_SIZE_SMALL"
+                                android:textStyle="bold"></TextView>
+
+                            <LinearLayout
+                                android:id="@+id/llUberDirections"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:layout_marginRight="@dimen/four_dp"
+                                android:orientation="horizontal"
+                                android:visibility="visible">
+
+
+                                <TextView
+                                    android:id="@+id/tvDollor"
+                                    android:layout_width="0dp"
+                                    android:visibility="visible"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top"
+                                    android:layout_weight="0.7"
+                                    android:clickable="true"
+                                    android:paddingLeft="@dimen/two_dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="@dimen/TEXT_SIZE_SMALL" />
+
+                                <TextView
+                                    android:id="@+id/tvmiles"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:clickable="true"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="@dimen/two_dp"
+                                    android:singleLine="true"
+                                    android:text="Uber"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="@dimen/TEXT_SIZE_SMALL" />
+
+                                <ImageView
+                                    android:id="@+id/ivMapRedirection"
+                                    android:layout_width="0dp"
+                                    android:onClick="@{(view)-> clickEvents.onClickDirections(view)}"
+                                    android:clickable="true"
+                                    android:layout_height="@dimen/twenty_two"
+                                    android:layout_marginRight="@dimen/eight_dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/directions"></ImageView>
+
+                                <TextView
+                                    android:id="@+id/ivUberRedirection"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:clickable="true"
+                                    android:onClick="@{(view)-> clickEvents.onClickUber(view)}"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:background="@android:color/black"
+                                    android:paddingLeft="@dimen/two_dp"
+                                    android:text="UBER"
+                                    android:textSize="@dimen/TEXT_SIZE_SMALL"></TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/llHours"
+                                android:visibility="gone"
+                                android:clickable="true"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/two_dp"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tvHours"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="0.25"
+                                    android:clickable="true"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_color"
+                                    android:text="@string/hours"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tvHoursValue"
+                                    android:layout_width="0dp"
+                                    android:lines="1"
+                                    android:clickable="true"
+                                    android:layout_weight="0.75"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_color"
+                                    />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvBarStreetAddress"
+                                android:layout_marginTop="@dimen/two_dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:clickable="true"
+                                android:visibility="gone"
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/TEXT_SIZE_SMALL"
+                                />
+
+                            <LinearLayout
+                                android:id="@+id/llPhone"
+                                android:visibility="gone"
+                                android:clickable="true"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/two_dp"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/tvPhone"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="0.25"
+                                    android:clickable="true"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_color"
+                                    android:text="@string/phone"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tvPhoneValue"
+                                    android:layout_width="0dp"
+                                    android:lines="1"
+                                    android:clickable="true"
+                                    android:layout_weight="0.75"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_color"
+                                    />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvUrl"
+                                android:visibility="gone"
+                                android:lines="1"
+                                android:clickable="true"
+                                android:autoLink="web"
+                                android:textColor="@color/text_color"
+                                android:layout_marginTop="@dimen/two_dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                ></TextView>
+
+
+                            <TextView
+                                android:id="@+id/tvFollowBarStore"
+                                style="@style/main_action_button"
+                                android:paddingRight="@dimen/ten_dp"
+                                android:paddingLeft="@dimen/ten_dp"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:textStyle="normal"
+                                android:clickable="true"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/TEXT_SIZE_SMALL"
+                                android:background="@drawable/border_button_no_solid_small"
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:onClick="@{(view)-> clickEvents.onClickFollowBarsStores(view)}"
+                                android:text="@string/follow_bar"
+                                android:textColor="@android:color/white"
+                                android:visibility="gone"
+                                ></TextView>
+
+                            <TextView
+                                android:id="@+id/tvUnFollowBarStore"
+                                style="@style/main_action_button"
+                                android:paddingRight="@dimen/ten_dp"
+                                android:paddingLeft="@dimen/ten_dp"
+                                android:paddingTop="@dimen/four_dp"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:textStyle="normal"
+                                android:clickable="true"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/TEXT_SIZE_SMALL"
+                                android:background="@drawable/border_button_no_solid_small"
+                                android:layout_marginTop="@dimen/eight_dp"
+                                android:onClick="@{(view)-> clickEvents.onClickUnFollowBarsStores(view)}"
+                                android:text="@string/unfollow_store"
+                                android:textColor="@android:color/white"
+                                android:visibility="gone"></TextView>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvEventSpecialTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/four_dp"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                            android:textStyle="bold"
+                            android:clickable="true"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/vpBarImages"></TextView>
+
+                        <TextView
+                            android:id="@+id/tvDesctiption"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/four_dp"
+                            android:layout_marginEnd="@dimen/four_dp"
+                            android:clickable="true"
+                            android:visibility="visible"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvEventSpecialTitle"></TextView>
+
+                        <TextView
+                            android:id="@+id/tvFeaturesHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/four_dp"
+                            android:clickable="true"
+                            android:layout_marginEnd="@dimen/four_dp"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDesctiption"></TextView>
+
+
+                        <TextView
+                            android:id="@+id/tvSpecialEventsText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_color"
+                            android:clickable="true"
+                            android:layout_marginStart="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/four_dp"
+                            android:layout_marginEnd="@dimen/four_dp"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvFeaturesHeading"
+                            ></TextView>
+
+
+
+                        <TextView
+                            android:id="@+id/tvDividerTeams"
+                            style="@style/divider_color"
+                            android:layout_width="match_parent"
+                            android:clickable="true"
+                            android:layout_marginRight="@dimen/sixteen_dp"
+                            android:layout_marginLeft="@dimen/sixteen_dp"
+                            android:layout_marginTop="@dimen/eight_dp"
+                            app:layout_constraintTop_toBottomOf="@id/tvSpecialEventsText"></TextView>
+
+
+
+                        <TextView
+                            android:id="@+id/tvTeamsHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/eight_dp"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:clickable="true"
+                            android:paddingTop="@dimen/four_dp"
+                            android:text="@string/employees"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL_PLUS"
+                            android:textStyle="bold"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toTopOf="@+id/rvTeams"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvSpecialEventsText"></TextView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTeams"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/four_dp"
+                            android:clickable="true"
+                            android:visibility="visible"
+                            android:layout_marginBottom="@dimen/fifteen_dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvTeamsHeading">
+                        </androidx.recyclerview.widget.RecyclerView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvFeatures"
+                            android:visibility="gone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/four_dp"
+                            android:maxHeight="@dimen/features_list_item_height"
+                            android:textColor="@android:color/black"
+                            android:clickable="true"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvSpecialEventsText"></androidx.recyclerview.widget.RecyclerView>
+
+
+                        <LinearLayout
+                            android:id="@+id/llDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:clickable="true"
+                            app:layout_constraintBottom_toTopOf="@+id/tvEventHeading"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rvFeatures">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/four_dp"
+                                android:clickable="true"
+                                android:layout_marginTop="@dimen/four_dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvDelivery"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/delivery"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                                    android:textStyle="bold"
+                                    android:clickable="true"
+                                    android:visibility="visible" />
+
+
+                                <TextView
+                                    android:id="@+id/tvDeliveryCharges"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_color"
+                                    android:clickable="true"
+                                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                                    />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvDeliveryDescription"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/four_dp"
+                                android:layout_marginRight="@dimen/four_dp"
+                                android:visibility="gone"
+                                android:clickable="true"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvWebsitelink"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/four_dp"
+                                android:layout_marginRight="@dimen/four_dp"
+                                android:autoLink="web"
+                                android:clickable="true"
+                                android:visibility="gone"
+                                android:paddingBottom="@dimen/four_dp"
+                                android:textColor="@color/text_color"
+                                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:id="@+id/tvEventHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:paddingTop="@dimen/four_dp"
+                            android:paddingBottom="@dimen/four_dp"
+                            android:text="@string/today_events"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL_PLUS"
+                            android:textStyle="bold"
+                            android:clickable="true"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toTopOf="@+id/rvTodayEvents"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rvTeams"></TextView>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTodayEvents"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/four_dp"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/four_dp"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:maxHeight="@dimen/features_list_item_height"
+                            android:clickable="true"
+                            android:visibility="gone"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/normal_text_size"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvEventHeading"></androidx.recyclerview.widget.RecyclerView>
+
+                        <TextView
+                            android:id="@+id/tvUpcommingHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:paddingTop="@dimen/four_dp"
+                            android:paddingBottom="@dimen/four_dp"
+                            android:text="@string/upcoming_events"
+                            android:textColor="@color/text_color"
+                            android:textSize="@dimen/TEXT_SIZE_NORMAL_PLUS"
+                            android:textStyle="bold"
+                            android:clickable="true"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toTopOf="@+id/rvUpcoming"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rvTodayEvents"></TextView>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvUpcoming"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/four_dp"
+                            android:layout_marginLeft="@dimen/four_dp"
+                            android:layout_marginTop="@dimen/two_dp"
+                            android:layout_marginEnd="@dimen/four_dp"
+                            android:layout_marginRight="@dimen/four_dp"
+                            android:layout_marginBottom="@dimen/two_dp"
+                            android:clickable="true"
+                            android:maxHeight="@dimen/features_list_item_height"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/normal_text_size"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvUpcommingHeading"></androidx.recyclerview.widget.RecyclerView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+            <TextView
+                android:id="@+id/tvDividerBarImges"
+                style="@style/divider_color"
+                android:layout_width="match_parent"
+                android:layout_marginRight="@dimen/sixteen_dp"
+                android:layout_marginLeft="@dimen/sixteen_dp"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:clickable="true"
+                app:layout_constraintTop_toBottomOf="@id/coordiLayout"></TextView>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vpAdvertisement"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_pager_images_height_ads"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:clickable="true"
+                app:layout_constraintRight_toRightOf="parent">
+            </androidx.viewpager.widget.ViewPager>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+
+</layout>

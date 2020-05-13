@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="registerTouchEvents"
+            type="com.mjdistillers.drinkthedrink.dialogs.RegistrationProfileCompletion.RegisterProfileCompleionClicks" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ten_dp"
+        android:background="@drawable/register_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/sixteen_dp">
+
+
+        <TextView
+            android:id="@+id/tvCreateAccount"
+            style="@style/heading_text_view"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/create_account_camel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            style="@style/cross_button"
+            android:onClick="@{(view)->registerTouchEvents.onClickClose(view)}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/close" />
+
+
+        <LinearLayout
+            android:id="@+id/llworkIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCreateAccount">
+
+            <TextView
+                android:id="@+id/tvWorkIndustry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/i_work_in_following_industry"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                android:textStyle="bold"></TextView>
+
+            <RadioGroup
+                android:id="@+id/rgPurchaseOnline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/rbHospitality"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/eight_dp"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:layout_weight="1.3"
+                    android:buttonTint="@color/radio_tint"
+                    android:text="@string/hospitality"
+                    android:textColor="@color/text_color"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rbRetailLiquore"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:layout_weight="1.3"
+                    android:buttonTint="@color/radio_tint"
+                    android:text="@string/retail_liquore"
+                    android:textColor="@color/text_color"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rbEvents"
+                    android:layout_width="0dp"
+                    android:textSize="@dimen/TEXT_SIZE_NORMAL"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/radio_tint"
+                    android:text="@string/event"
+                    android:textColor="@color/text_color"></RadioButton>
+
+            </RadioGroup>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvTellUsWhereWork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/tell_us_speciality"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llworkIn" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSpeciality"
+            style="@style/edit_text"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:hint="@string/speciality"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:textColorHint="@color/edit_text_hint_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTellUsWhereWork">
+
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <TextView
+            android:id="@+id/tvTellUsFavAlcohol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/tell_us_alcohol"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSpeciality" />
+
+
+        <!--        FAV AlCOHOL -->
+
+
+        <ImageView
+            android:id="@+id/ivDownArrowFavAlcohol"
+            android:layout_width="@dimen/fifteen_dp"
+            android:layout_height="@dimen/fifteen_dp"
+            android:layout_marginRight="@dimen/eight_dp"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintBottom_toBottomOf="@id/spFavAlcohol"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spFavAlcohol"></ImageView>
+
+        <TextView
+            android:id="@+id/tvSupportFavAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:padding="@dimen/eight_dp"
+            android:textColor="@color/text_color_black"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="@dimen/normal_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTellUsFavAlcohol"></TextView>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spFavAlcohol"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSupportFavAlcohol"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSupportFavAlcohol"></androidx.appcompat.widget.AppCompatSpinner>
+
+        <TextView
+            android:id="@+id/tvUnderlineFavAlcohol"
+            style="@style/divider_color"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_height"
+            app:layout_constraintLeft_toLeftOf="@id/spFavAlcohol"
+            app:layout_constraintRight_toRightOf="@+id/spFavAlcohol"
+            app:layout_constraintTop_toBottomOf="@+id/spFavAlcohol" />
+
+        <!--        FAV AlCOHOL -->
+
+        <TextView
+            android:id="@+id/tvTelldDay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/tell_us_day"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSupportFavAlcohol" />
+
+        <!--        DAY OUT-->
+
+
+        <ImageView
+            android:id="@+id/ivDownArrowDayOut"
+            android:layout_width="@dimen/fifteen_dp"
+            android:layout_height="@dimen/fifteen_dp"
+            android:layout_marginRight="@dimen/eight_dp"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintBottom_toBottomOf="@id/spDayOut"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spDayOut"></ImageView>
+
+        <TextView
+            android:id="@+id/tvSupportDayOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:padding="@dimen/eight_dp"
+            android:textColor="@color/text_color_black"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="@dimen/normal_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTelldDay"></TextView>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spDayOut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSupportDayOut"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSupportDayOut"></androidx.appcompat.widget.AppCompatSpinner>
+
+        <TextView
+            android:id="@+id/tvUnderlineDayOut"
+            style="@style/divider_color"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_height"
+            app:layout_constraintLeft_toLeftOf="@id/spDayOut"
+            app:layout_constraintRight_toRightOf="@+id/spDayOut"
+            app:layout_constraintTop_toBottomOf="@+id/spDayOut" />
+
+        <!--        DAY OUT-->
+
+        <TextView
+            android:id="@+id/tvAlcoholOnline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:text="@string/alcohol_online"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/TEXT_SIZE_NORMAL"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSupportDayOut" />
+
+
+        <!-- AlCOHOL ONLINE -->
+
+
+        <ImageView
+            android:id="@+id/ivDownArrowAlcoholOnline"
+            android:layout_width="@dimen/fifteen_dp"
+            android:layout_height="@dimen/fifteen_dp"
+            android:layout_marginRight="@dimen/eight_dp"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintBottom_toBottomOf="@id/spOnlineAlcohol"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spOnlineAlcohol"></ImageView>
+
+        <TextView
+            android:id="@+id/tvSupportOnlineAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:padding="@dimen/eight_dp"
+            android:textColor="@color/text_color_black"
+            android:textColorHint="@color/hint_text_color"
+            android:textSize="@dimen/normal_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlcoholOnline"></TextView>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spOnlineAlcohol"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSupportOnlineAlcohol"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSupportOnlineAlcohol"></androidx.appcompat.widget.AppCompatSpinner>
+
+        <TextView
+            android:id="@+id/tvUnderlineOnlineAlcohol"
+            style="@style/divider_color"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_height"
+            app:layout_constraintLeft_toLeftOf="@id/spOnlineAlcohol"
+            app:layout_constraintRight_toRightOf="@+id/spOnlineAlcohol"
+            app:layout_constraintTop_toBottomOf="@+id/spOnlineAlcohol" />
+
+        <!-- AlCOHOL ONLINE -->
+
+
+        <!--        BUTTONS-->
+
+
+        <TextView
+            android:id="@+id/tvSave"
+            style="@style/main_action_button"
+            android:layout_marginTop="@dimen/sixteen_dp"
+            android:background="@drawable/main_action_popup_btn_bg"
+            android:onClick="@{(view)-> registerTouchEvents.onClickSave(view)}"
+            android:paddingLeft="@dimen/thirty_dp"
+            android:paddingRight="@dimen/thirty_dp"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvUpdatePassword"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSupportOnlineAlcohol"></TextView>
+
+        <TextView
+            android:id="@+id/tvUpdatePassword"
+            style="@style/main_action_button"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:background="@drawable/main_action_popup_btn_bg"
+            android:onClick="@{(view)-> registerTouchEvents.onClickContinue(view)}"
+            android:paddingLeft="@dimen/ten_dp"
+            android:paddingRight="@dimen/ten_dp"
+
+            android:text="@string/continueee"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="@id/tvSave"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvSave"
+            app:layout_constraintTop_toTopOf="@id/tvSave"></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
